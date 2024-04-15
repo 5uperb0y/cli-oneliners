@@ -1,3 +1,6 @@
+# Display the amount of disk space
+`df -h`
+
 # Convert interleaved fasta files to single-line
 `awk '{if(NR==1) {print $0} else {if($0 ~ /^>/) {print "\n"$0} else {printf $0}}}' <fasta>`
 https://www.ecseq.com/support/ngs-snippets/convert-interleaved-fasta-files-to-single-line
@@ -32,3 +35,11 @@ https://note.drx.tw/2008/04/command.html
 # Unzip files with suffix `.gz`
 `gunzip <file>`
 https://note.drx.tw/2008/04/command.html
+ 
+# Remove secondary alignment reads from a bam file
+`samtools view -F 256 <bam>`
+see flags at https://www.biostars.org/p/206396/
+
+# Keep secondary alignment reads from a bam file
+`samtools view -f 256 <bam>`
+see flags at https://www.biostars.org/p/206396/
